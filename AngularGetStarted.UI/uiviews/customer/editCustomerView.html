@@ -1,0 +1,66 @@
+﻿<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <a href="#/" class="btn btn-sm btn-default">
+            <i class="fa fa-angle-left"></i>Back
+        </a>
+
+        <h1> Updating {{ vm.customer.customerId }} {{vm.customer.FirstName}}</h1>
+        <form novalidate name="editForm" ng-submit="vm.UpdateCustomer()">
+
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input class="form-control" id="firstName" name="firstName" ng-model="vm.customer.FirstName" required />
+                <span ng-show="editForm.firstName.$error.required" class="text-warning">Required!</span>                
+            </div>
+
+            <div class="form-group">
+                <label for="title">Surname</label>
+                <input class="form-control" id="surname" name="surname" ng-model="vm.customer.Surname" required />
+                <span ng-show="editForm.surname.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Email</label>
+                <input class="form-control" id="email" name="email" ng-model="vm.customer.Email" required />
+                <span ng-show="editForm.email.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Address L1</label>
+                <input class="form-control" id="addressL1" name="addressL1" ng-model="vm.customer.AddressL1" required />
+                <span ng-show="editForm.addressL1.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Address L2</label>
+                <input class="form-control" id="addressL2" name="addressL2" ng-model="vm.customer.AddressL2" required />
+                <span ng-show="editForm.addressL2.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Address L3</label>
+                <input class="form-control" id="addressL3" name="addressL3" ng-model="vm.customer.AddressL3" required />
+                <span ng-show="editForm.addressL3.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Post Code</label>
+                <input class="form-control" id="postCode" name="postCode" ng-model="vm.customer.PostCode" required ng-minlength="5" />
+                <span ng-show="editForm.postCode.$error.required" class="text-warning">Required!</span>
+                <span ng-show="editForm.firstName.$error.minlength" class="text-warning">PostCode must be atleast 5 characters long!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Phone</label>
+                <input class="form-control" id="phone" name="phone" ng-model="vm.customer.Phone" required />
+                <span ng-show="editForm.phone.$error.required" class="text-warning">Required!</span>
+            </div>
+
+            <div>
+                <input type="submit" value="Edit" class="btn btn-success" ng-disabled="editForm.$invalid" />
+            </div>
+        </form>
+    </div>
+</div>

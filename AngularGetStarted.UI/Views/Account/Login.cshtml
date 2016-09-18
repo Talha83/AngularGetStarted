@@ -1,0 +1,35 @@
+﻿@model AngularGetStarted.UI.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    <div>
+        <fieldset>
+            <legend>Log in</legend>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Username)
+                @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+
+            <p>
+                <input type="submit" value="Log in" class="btn btn-primary" />
+            </p>
+        </fieldset>
+    </div>
+
+    if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+    {
+        <div class="alert alert-warning">
+            <a class="close" data-dismiss="alert">&times;</a>
+            @Html.ValidationSummary()
+        </div>
+    }
+}
